@@ -172,7 +172,7 @@ app.get('/facilitator/supported', (req: Request, res: Response) => {
  * Helper: Send 402 Payment Required response
  */
 function sendPaymentRequired(res: Response, endpoint: string, amount: string): void {
-  const nonce = randomBytes(32).toString('hex');
+  const nonce = '0x' + randomBytes(32).toString('hex');
   const expiresAt = Date.now() + 5 * 60 * 1000; // 5 minutes
 
   issuedNonces.set(nonce, { expires: expiresAt, used: false });
@@ -204,7 +204,7 @@ function createPaymentRequirement(
     asset: USDC_BASE_SEPOLIA,
     maxTimeoutSeconds: 300,
     mimeType: 'application/json',
-    nonce: nonce || randomBytes(32).toString('hex'),
+    nonce: nonce || '0x' + randomBytes(32).toString('hex'),
     extra: {
       name: 'USD Coin',
       version: '2',
