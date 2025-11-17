@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x402 Payment Protocol Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>x402 Payment Protocol Demo</h1>
+            <p class="subtitle">HTTP 402 Payment Required - Micropayments Made Simple</p>
+        </header>
+
+        <!-- Wallet Connection -->
+        <div class="wallet-section" id="walletSection">
+            <div class="card">
+                <h2>Step 1: Connect Your Wallet</h2>
+                <p>Enter your private key to connect (testnet only - Base Sepolia)</p>
+                <div class="input-group">
+                    <input
+                        type="password"
+                        id="privateKey"
+                        placeholder="0x... your private key"
+                        class="input-field"
+                    >
+                    <button onclick="connectWallet()" class="btn btn-primary">Connect Wallet</button>
+                </div>
+                <div id="walletInfo" class="wallet-info hidden">
+                    <p><strong>Connected:</strong> <span id="walletAddress"></span></p>
+                    <p><strong>Network:</strong> Base Sepolia (Testnet)</p>
+                </div>
+                <div class="warning">
+                    <p>⚠️ For demo purposes only. Never use real private keys!</p>
+                    <p>Get testnet USDC: <a href="https://faucet.circle.com/" target="_blank">Circle Faucet</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Cards -->
+        <div class="content-section">
+            <h2>Step 2: Try Accessing Protected Content</h2>
+            <p class="section-desc">Click on any card below to access premium content. You'll be prompted to make a micropayment via x402.</p>
+
+            <div class="cards-grid">
+                <!-- Free Content -->
+                <div class="card content-card">
+                    <div class="card-header free">
+                        <span class="price-tag">FREE</span>
+                    </div>
+                    <h3>Public Endpoint</h3>
+                    <p class="card-desc">No payment required - open access for everyone</p>
+                    <button onclick="accessContent('/public', 'free')" class="btn btn-secondary">
+                        Access Now
+                    </button>
+                    <div id="content-free" class="content-result hidden"></div>
+                </div>
+
+                <!-- API Call -->
+                <div class="card content-card">
+                    <div class="card-header paid">
+                        <span class="price-tag">0.1 USDC</span>
+                    </div>
+                    <h3>API Call Service</h3>
+                    <p class="card-desc">Process data with our premium API endpoint</p>
+                    <button onclick="accessContent('/api-call', 'api')" class="btn btn-primary">
+                        Pay & Access
+                    </button>
+                    <div id="content-api" class="content-result hidden"></div>
+                </div>
+
+                <!-- Premium Data -->
+                <div class="card content-card">
+                    <div class="card-header premium">
+                        <span class="price-tag">1.0 USDC</span>
+                    </div>
+                    <h3>Premium Market Data</h3>
+                    <p class="card-desc">Real-time crypto market insights and analysis</p>
+                    <button onclick="accessContent('/premium-data', 'premium')" class="btn btn-premium">
+                        Pay & Access
+                    </button>
+                    <div id="content-premium" class="content-result hidden"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Flow Visualization -->
+        <div class="flow-section hidden" id="flowSection">
+            <h2>Payment Flow in Progress</h2>
+            <div class="flow-steps">
+                <div class="flow-step" id="step1">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Request Resource</h4>
+                        <p>Sending HTTP request to protected endpoint...</p>
+                    </div>
+                </div>
+                <div class="flow-step" id="step2">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>402 Payment Required</h4>
+                        <p>Server requires payment to access resource</p>
+                    </div>
+                </div>
+                <div class="flow-step" id="step3">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Create Payment</h4>
+                        <p>Signing payment authorization (EIP-712)...</p>
+                    </div>
+                </div>
+                <div class="flow-step" id="step4">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Submit Payment</h4>
+                        <p>Sending request with X-PAYMENT header</p>
+                    </div>
+                </div>
+                <div class="flow-step" id="step5">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Access Granted</h4>
+                        <p>Payment verified, content delivered!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transaction Info -->
+        <div class="transaction-section hidden" id="transactionSection">
+            <div class="card">
+                <h3>Latest Transaction</h3>
+                <div id="transactionInfo"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Powered by <a href="https://github.com/coinbase/x402" target="_blank">x402 Protocol</a></p>
+            <p>Built on Base Sepolia Testnet</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.0/dist/ethers.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

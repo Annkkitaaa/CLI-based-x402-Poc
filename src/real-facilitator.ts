@@ -64,7 +64,7 @@ export class RealFacilitator {
         };
       }
 
-      const result = await response.json();
+      const result = await response.json() as VerifyResponse;
       console.log(`[RealFacilitator] Verification result:`, result);
 
       return result;
@@ -113,7 +113,7 @@ export class RealFacilitator {
         };
       }
 
-      const result = await response.json();
+      const result = await response.json() as SettleResponse;
 
       if (result.success) {
         console.log(`[RealFacilitator] ✓ Payment settled successfully!`);
