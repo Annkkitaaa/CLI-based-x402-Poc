@@ -48,7 +48,7 @@ async function makeX402Request(options: RequestOptions): Promise<void> {
     console.log(`      Status: 402 Payment Required ✓\n`);
 
     // Step 2: Parse payment requirements
-    const paymentRequired: PaymentRequiredResponse = await initialResponse.json();
+    const paymentRequired = await initialResponse.json() as PaymentRequiredResponse;
 
     if (verbose) {
       console.log('      Payment Requirements:');
@@ -94,7 +94,7 @@ async function makeX402Request(options: RequestOptions): Promise<void> {
     }
 
     // Success!
-    const responseData = await paidResponse.json();
+    const responseData = await paidResponse.json() as any;
 
     console.log('╔════════════════════════════════════════════════════════════╗');
     console.log('║              ✓ Payment Successful!                        ║');
