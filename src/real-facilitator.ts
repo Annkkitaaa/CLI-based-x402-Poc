@@ -24,7 +24,7 @@ export class RealFacilitator {
         throw new Error(`Facilitator error: ${response.statusText}`);
       }
 
-      return response.json();
+      return await response.json() as SupportedScheme[];
     } catch (error) {
       console.error('Error fetching supported schemes:', error);
       throw error;

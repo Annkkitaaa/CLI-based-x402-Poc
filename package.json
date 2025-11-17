@@ -7,11 +7,14 @@
   "scripts": {
     "build": "tsc",
     "server": "node dist/server.js",
+    "server:real": "node dist/server-real.js",
     "client": "node dist/client.js",
     "dev:server": "tsx src/server.ts",
+    "dev:server:real": "tsx src/server-real.ts",
     "dev:client": "tsx src/client.ts",
     "generate-wallet": "tsx src/generate-wallet.ts",
-    "start": "npm run dev:server"
+    "start": "npm run dev:server",
+    "start:real": "npm run dev:server:real"
   },
   "keywords": [
     "x402",
