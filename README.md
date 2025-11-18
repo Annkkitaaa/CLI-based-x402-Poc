@@ -455,7 +455,6 @@ Before deploying to mainnet:
 
 - [ ] Get Coinbase Developer Platform account at https://portal.cdp.coinbase.com/
 - [ ] Generate API credentials
-- [ ] Update network from `base-sepolia` to `base`
 ## Learn More
 
 ### Official Resources
