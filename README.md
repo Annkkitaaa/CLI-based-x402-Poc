@@ -464,13 +464,7 @@ Before deploying to mainnet:
 - [ ] Add logging and monitoring
 - [ ] Set up payment notifications
 - [ ] Secure private keys (never in code/git)
-- [ ] Consider using wallet service instead of raw private keys
-- [ ] Implement rate limiting
-- [ ] Add payment history tracking
-
-
-
-
+- [ ] Consider using wallet service instead of raw 
 
 ## Learn More
 
