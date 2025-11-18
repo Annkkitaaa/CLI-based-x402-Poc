@@ -471,7 +471,7 @@ Before deploying to mainnet:
 ### Integration Time
 
 - **Basic integration**: ~30 minutes
-- **Production-ready**: 1-2 days
+
 
 
 ## Learn More
