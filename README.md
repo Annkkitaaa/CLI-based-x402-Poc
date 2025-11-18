@@ -568,7 +568,7 @@ Response Data:
 
 ## License
 
-MIT
+
 
 ---
 
