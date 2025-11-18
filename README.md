@@ -463,8 +463,6 @@ Before deploying to mainnet:
 - [ ] Implement proper error handling
 - [ ] Add logging and monitoring
 - [ ] Set up payment notifications
-- [ ] Secure private keys (never in code/git)
-- [ ] Consider using wallet service instead of raw 
 
 ## Learn More
 
