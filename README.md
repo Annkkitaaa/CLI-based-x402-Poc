@@ -457,7 +457,6 @@ Before deploying to mainnet:
 - [ ] Generate API credentials
 - [ ] Update network from `base-sepolia` to `base`
 - [ ] Use real USDC contract: `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913`
-- [ ] Update facilitator URL to production endpoint
 
 
 
